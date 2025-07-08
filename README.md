@@ -1,35 +1,62 @@
-
 # Cincinnati Car Crash Forecasting
 
-To evaluate and compare multiple time series forecasting methods applied to Cincinnati traffic crash data, and ultimately identify the most accurate and reliable model for predicting future crash counts.
+This project aims to forecast daily car crash counts in Cincinnati using various time series models. The goal is to evaluate and compare forecasting methods to identify the most accurate and reliable approach for predicting future crash counts.
 
-## Tech Stack
+## Dataset
+- **File:** `cpd_crashes.csv`
+- **Description:** Contains daily crash counts for Cincinnati. Columns:
+  - `date`: Date of observation (YYYY-MM-DD)
+  - `cpd_crashes`: Number of crashes reported on that day
 
-**Forecasting Models:** Naive, Seasonal Naive,oving Averages, ARIMA, SARIMA,Prophet,
+## Notebooks
+- `bana7050_assignment_2.ipynb`, `bana7050_assignment_3.ipynb`, `bana7050_assignment_4.ipynb`: Stepwise assignments exploring data, model selection, and evaluation.
+- `Time_Series_4 2.ipynb`: Main notebook for advanced time series modeling and cross-validation.
 
-**Language:** Python
+## Methodology
+1. **Data Preparation:**
+   - Load and clean the crash data.
+   - Set the date as the index and sort chronologically.
+2. **Train/Test Split:**
+   - Typically, 80% of the data is used for training and 20% for testing.
+3. **Cross-Validation:**
+   - Rolling window cross-validation is used to simulate real-world forecasting and assess model robustness.
+4. **Models Evaluated:**
+   - Naive and Seasonal Naive
+   - ARIMA and SARIMA
+   - Prophet (if available)
+5. **Evaluation Metrics:**
+   - RMSE, MAE, MAPE, MASE
+   - Visual comparison of actual vs. predicted values
 
-**Libraries:**
+## How to Run
+1. **Requirements:**
+   - Python 3.8+
+   - Jupyter Notebook or Quarto
+   - Install dependencies:
+     ```bash
+     pip install pandas numpy matplotlib seaborn scikit-learn statsmodels
+     ```
+2. **Usage:**
+   - Open any notebook (e.g., `Time_Series_4 2.ipynb`) in Jupyter.
+   - Run cells sequentially to reproduce the analysis and plots.
+   - Modify parameters or models as needed for experimentation.
 
-pandas, numpy – data manipulation
+## Results & Insights
+- SARIMA models generally outperform naive baselines, especially for multi-step forecasts.
+- Rolling window cross-validation provides a realistic estimate of model performance.
+- Forecast errors reveal both strengths and limitations of each approach.
 
-matplotlib, seaborn – visualization
+## File Structure
+- `cpd_crashes.csv`: Main dataset
+- `*.ipynb`: Jupyter notebooks with code and analysis
+- `*.html`: Rendered notebook outputs
+- `Time_Series_4 2_files/`: Supporting files for HTML outputs
 
-statsmodels – statistical modeling (e.g., SARIMA)
+## Author
+Siddhant Madan
 
-scikit-learn – preprocessing & metrics
-
-**Platform:** Jupyter / Quarto (HTML output)
-
-## Lessons Learned
-
-**Time Series Modeling:** Gained hands-on experience with SARIMA and Prophet models, understanding their strengths and weaknesses in real-world forecasting.
-
-**Cross-Validation Design:** Learned how to implement rolling forecast evaluation, which simulates real forecasting more realistically than static test splits.
-
-**Model Selection:** Discovered that the most accurate model isn't always the best across all forecast horizons—context matters.
-
-**Interpretation of Forecast Errors:** Understood how residual analysis reveals systematic model limitations like bias or over-smoothing.
+---
+Feel free to use or adapt this project for your own time series forecasting tasks!
 
 
 
